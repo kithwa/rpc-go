@@ -122,6 +122,7 @@ type Flags struct {
 	SOL                                 bool
 	IDER                                bool
 	LocalTlsEnforced                    bool
+	Secure                              bool
 	ControlMode                         int
 }
 
