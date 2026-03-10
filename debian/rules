@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+
+export PATH := /usr/local/go/bin:$(PATH)
+export GOFLAGS := -mod=vendor
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	go mod vendor
+	go build \
+		-mod=vendor \
+		-buildvcs=false \
+		-ldflags="-s -w -X github.com/device-management-toolkit/rpc-go/v2/pkg/utils.ProjectVersion=2.49.1" \
+		-o rpc \
+		./cmd/rpc
+
+override_dh_auto_test:
+	# skip tests during package build
+
+override_dh_auto_install:
+	install -D -m 0755 rpc debian/rpc-go/usr/bin/rpc

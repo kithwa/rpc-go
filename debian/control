@@ -1,0 +1,20 @@
+Source: rpc-go
+Section: utils
+Priority: optional
+Maintainer: Intel One Ubuntu Account <intel.one.ubuntu.account@intel.com>
+Build-Depends:
+ debhelper-compat (= 13),
+Standards-Version: 4.6.1
+Homepage: https://github.com/device-management-toolkit/rpc-go
+Rules-Requires-Root: no
+
+Package: rpc-go
+Architecture: amd64
+Depends:
+ ${misc:Depends},
+Description: Remote Provisioning Client (RPC) for Intel AMT
+ RPC is a command-line tool used for activation, deactivation,
+ maintenance and status of Intel Active Management Technology (AMT).
+ It communicates with the Intel Management Engine Interface (MEI)
+ via the HECI driver and connects to a Remote Provisioning Server (RPS)
+ for cloud-based provisioning workflows.
